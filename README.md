@@ -71,11 +71,13 @@ week8-task-manager-fullstack/
 ## 4. Visual Documentation
 ### Login Page
 ![Login Page](login-page.png)
+![Login Page](login-page.png)
 
 ### Task Dashboard
 ![Dashboard](dashboard.png.png)
 
 ### Task Interaction
+![Task Action](task-action.png)
 ![Task Action](task-action.png)
 
 ## 5. Technical Details
