@@ -77,7 +77,6 @@ week8-task-manager-fullstack/
 
 ### Task Search & Filter
 ![Task Creation](task-creation.png)
-![Task Search](task-search.png)
 
 ### Task Completion
 ![Task Search](task-search.png)
