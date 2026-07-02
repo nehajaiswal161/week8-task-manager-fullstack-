@@ -187,7 +187,7 @@ The application follows a unidirectional data flow:
 
 ### Data Flow Diagram
 
-![Data Flow Diagram](assets/data-flow.png)
+![Data Flow Diagram](assets/dataflow.jpeg)
 
 ## 8. API Documentation
 
@@ -241,4 +241,10 @@ Clients subscribed to `/topic/tasks` receive real-time notifications whenever a 
 
 ```http
 Authorization: Bearer <your_jwt_token>
+
 ```
+## Author
+**Neha Jaiswal**
+
+- **Course:** BCA-MCA (Integrated)
+- **University:** Amity University
