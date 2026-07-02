@@ -52,10 +52,10 @@ week8-task-manager-fullstack/
 
 ## 4. Visual Documentation
 ### Login Page
-![Login Page](login.png)
+![Login Page](login-page.png)
 
 ### Task Dashboard
-![Dashboard](dashboard.png)
+![Dashboard](dashboard.png.png)
 
 ### Task Interaction
 ![Task Action](task-action.png)
@@ -186,8 +186,7 @@ The application follows a unidirectional data flow:
 7. WebSocket broadcasts updates to all connected clients for real-time synchronization.
 
 ### Data Flow Diagram
-
-![Data Flow Diagram](assets/dataflow.jpeg)
+![Data Flow Diagram](dataflow.jpeg)
 
 ## 8. API Documentation
 
