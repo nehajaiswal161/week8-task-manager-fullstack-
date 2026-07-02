@@ -80,10 +80,11 @@ week8-task-manager-fullstack/
 ![Task Search](task-search.png)
 
 ### Task Completion
-![Task Completion](task-completion.png)
+![Task Search](task-search.png)
 
 ### Task Interaction
 ![Task Action](task-action.png.png)
+![Task Completion](task-completion.png)
 
 ## 5. Technical Details
 
