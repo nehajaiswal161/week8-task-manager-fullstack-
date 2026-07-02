@@ -75,6 +75,15 @@ week8-task-manager-fullstack/
 ### Task Dashboard
 ![Dashboard](dashboard.png.png)
 
+### Task Creation
+![Task Creation](task-creation.png)
+
+### Task Search & Filter
+![Task Search](task-search.png)
+
+### Task Completion
+![Task Completion](task-completion.png)
+
 ### Task Interaction
 ![Task Action](task-action.png.png)
 
