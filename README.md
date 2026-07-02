@@ -61,44 +61,133 @@ week8-task-manager-fullstack/
 ![Task Action](task-action.png)
 
 ## 5. Technical Details
-Architecture:
-1 Layered Backend Architecture: The backend follows a standard layered approach (Controller -> Service -> Repository) to maintain a clear separation of concerns.
-2 RESTful API: Facilitates seamless communication between the frontend and backend.
-3 Real-time Synchronization: Utilizes WebSockets for real-time task updates and notifications, ensuring the UI remains consistent without needing manual page refreshes.
 
-Algorithms & Data Structures
-1 Task State Management: Uses a status-based filtering algorithm to toggle between 'All', 'Pending', and 'Completed' tasks efficiently.
-2 Authentication Flow: Implements JWT (JSON Web Token) based authentication, utilizing BCrypt for password hashing to ensure secure storage and validation.
-3 State Management: The frontend employs the Context API as a data structure to maintain global state, providing a predictable and unidirectional flow of task data across the component hierarchy.
+### Architecture
 
-6. Testing Evidence
-Backend Testing (Java/Spring Boot)
-1 Unit Testing: Used JUnit 5 and Mockito to test service-layer logic in isolation, ensuring that task status transitions and validation rules work as expected.
-2 Integration Testing: Implemented Testcontainers to spin up a transient PostgreSQL instance, verifying that database migrations (Flyway) and repository methods interact correctly with the database.
-3 Security Testing: Validated authentication endpoints using manual tests to ensure that protected resources are inaccessible without a valid JWT.
+The application follows a modern full-stack architecture to ensure scalability, maintainability, and real-time performance.
 
-Frontend Testing (React/TypeScript)
-1 Component Testing: Used Vitest and React Testing Library to render components (like TaskForm and TaskList) and verify that they correctly display state-driven data.
-2 API Mocking: Employed MSW (Mock Service Worker) to simulate API responses, allowing for testing of edge cases like network errors and successful task retrieval without needing a live backend.
-3 Validation: Verified form submission behavior using React Hook Form to ensure invalid task data is blocked before reaching the API layer.
+#### Layered Backend Architecture
+The Spring Boot backend follows a layered architecture:
 
-7. Component Architecture
-Component Hierarchy
-1 The application follows a hierarchical structure where the App component acts as the main entry point:
-2 App: Wraps the application with global providers (AuthContext, TaskContext).
-3 Layout: Provides the navigation and structural shell for the app.
-4 Dashboard: The primary container that holds the TaskForm and TaskList components.
-5 TaskList: Renders individual task items, receiving task data as props.
-6 LoginForm: An isolated component dedicated to user authentication and credentials handling.
+```
+Controller → Service → Repository → Database
+```
 
-Data Flow Diagram
-The data flow is designed to be unidirectional and predictable:
-1 User Action: An action (e.g., adding a task) is triggered in the TaskForm.
-2 API Call: The form calls the services/api.ts layer to send a request to the Spring Boot backend.
-3 State Update: Upon a successful API response, the TaskContext updates the global application state.
-4 UI Refresh: React detects the state change in the TaskContext and triggers a re-render of the TaskList component to show the updated data.
-5 Real-time Sync: The WebSocketService listens for server-side events to push updates directly to the client, triggering a state update in real-time.
-[Data Flow Diagram](assets/data-flow.png)
+This separation of concerns improves code organization, maintainability, and testability.
+
+#### RESTful API
+The frontend communicates with the backend through RESTful APIs, enabling efficient CRUD operations for authentication and task management.
+
+#### Real-Time Synchronization
+WebSocket (STOMP over SockJS) is used to broadcast task updates instantly to all connected clients, ensuring that the UI stays synchronized without requiring manual page refreshes.
+
+---
+
+### Algorithms & Data Structures
+
+#### Task State Management
+Tasks are filtered based on their status (`ALL`, `PENDING`, `COMPLETED`) using efficient state-based filtering, allowing quick switching between different task views.
+
+#### Authentication Flow
+The application uses JWT (JSON Web Token) for authentication and BCrypt for password hashing, ensuring secure credential storage and protected API access.
+
+#### Frontend State Management
+React Context API is used for global state management, providing a predictable and unidirectional flow of task data across components.
+
+---
+
+## 6. Testing Evidence
+
+### Backend Testing (Spring Boot)
+
+#### Unit Testing
+- Implemented using **JUnit 5** and **Mockito**.
+- Tested service-layer business logic independently.
+- Verified task creation, updates, validation, and status transitions.
+
+#### Integration Testing
+- Used **Testcontainers** with PostgreSQL.
+- Verified database connectivity, Flyway migrations, and repository operations.
+
+#### Security Testing
+- Tested JWT authentication manually.
+- Verified that protected endpoints reject unauthorized requests.
+- Confirmed authenticated users can access secured resources.
+
+---
+
+### Frontend Testing (React + TypeScript)
+
+#### Component Testing
+- Used **Vitest** and **React Testing Library**.
+- Tested components such as **TaskForm** and **TaskList**.
+- Verified rendering, user interactions, and state updates.
+
+#### API Mocking
+- Used **MSW (Mock Service Worker)**.
+- Simulated backend responses for success and error scenarios.
+- Enabled frontend testing without requiring a running backend server.
+
+#### Form Validation
+- Tested form validation using **React Hook Form**.
+- Ensured invalid task inputs are prevented before API submission.
+
+---
+
+## 7. Component Architecture
+
+### Component Hierarchy
+
+The application follows a hierarchical component structure:
+
+```
+App
+│
+├── AuthProvider
+├── TaskProvider
+│
+└── Layout
+    │
+    ├── LoginForm
+    │
+    └── Dashboard
+        │
+        ├── TaskForm
+        └── TaskList
+            └── TaskItem
+```
+
+### Component Responsibilities
+
+| Component | Responsibility |
+|-----------|----------------|
+| **App** | Entry point of the application and wraps global providers. |
+| **AuthProvider** | Manages authentication state and JWT token. |
+| **TaskProvider** | Stores and updates global task state. |
+| **Layout** | Provides the application's overall structure and navigation. |
+| **Dashboard** | Displays task management interface. |
+| **TaskForm** | Creates new tasks and edits existing ones. |
+| **TaskList** | Displays all tasks. |
+| **TaskItem** | Represents an individual task. |
+| **LoginForm** | Handles user authentication. |
+
+---
+
+### Data Flow
+
+The application follows a unidirectional data flow:
+
+1. User performs an action (e.g., creating a task).
+2. `TaskForm` sends the request through the API service.
+3. The Spring Boot backend processes the request.
+4. The backend returns the updated task data.
+5. `TaskContext` updates the global application state.
+6. React automatically re-renders `TaskList` with the latest data.
+7. WebSocket broadcasts updates to all connected clients for real-time synchronization.
+
+### Data Flow Diagram
+
+![Data Flow Diagram](assets/data-flow.png)
 
 ## 8. API Documentation
 
