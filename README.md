@@ -1,7 +1,25 @@
-Full Stack Task Manager Application
+# 📋 Full Stack Task Manager Application
 
-1. Project Overview
-A complete full-stack task management application with React TypeScript frontend and Spring Boot backend. This project demonstrates professional full-stack development skills by implementing features like JWT authentication, real-time updates, and drag-and-drop task management.
+## Project Overview
+
+The **Full Stack Task Manager Application** is a modern, scalable, and responsive task management system built using **React (TypeScript)** for the frontend and **Spring Boot** for the backend. It enables users to securely manage their daily tasks through an intuitive interface while providing real-time synchronization across connected clients.
+
+The application follows industry-standard software architecture and demonstrates end-to-end full-stack development practices, including secure authentication, RESTful APIs, WebSocket communication, and efficient state management. Designed with scalability, maintainability, and user experience in mind, this project showcases practical implementation of modern web technologies used in enterprise applications.
+
+### Key Features
+- 🔐 Secure user authentication using JWT (JSON Web Tokens)
+- ✅ Create, update, delete, and manage tasks efficiently
+- 📊 Task filtering based on status (All, Pending, Completed)
+- ⚡ Real-time task synchronization using WebSockets
+- 🎯 Drag-and-drop functionality for seamless task organization
+- 🔄 RESTful API integration between frontend and backend
+- 📱 Responsive and user-friendly interface
+- 🛡️ Password encryption using BCrypt
+- 🌐 Global state management using React Context API
+- 🧪 Comprehensive backend and frontend testing
+- 🗄️ PostgreSQL database integration with Flyway migrations
+
+This project demonstrates best practices in full-stack application development, including clean architecture, secure authentication, real-time communication, component-based frontend design, and maintainable backend services.
 
 ## 2. Setup Instructions
 ### Using Docker Compose
