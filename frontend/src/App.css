@@ -1,0 +1,5 @@
+.container { width: 400px; margin: 50px auto; padding: 20px; box-shadow: 0 0 10px #ccc; border-radius: 8px; }
+.task-item { display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid #eee; }
+.add-btn { background: green; color: white; border: none; padding: 5px; margin-left: 5px; }
+.done-btn { background: gold; border: none; margin-right: 5px; cursor: pointer; }
+.delete-btn { background: red; color: white; border: none; cursor: pointer; }
